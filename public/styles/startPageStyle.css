@@ -1,0 +1,10 @@
+
+.contant{
+	border: 2px solid blue;
+	width: 65%;
+	height: 80%;
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    border-radius: 2%;
+}
