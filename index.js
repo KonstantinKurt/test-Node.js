@@ -21,6 +21,9 @@ app.get('/logIn', function(req, res) {
 app.get('/sighIn', function(req, res) { 
     res.render('sighIn'); 
 });
+app.get('/personal', function(req, res) { 
+    res.render('personal'); 
+});
 app.use(function(req, res) {   
     res.status(404);
     res.render('404');

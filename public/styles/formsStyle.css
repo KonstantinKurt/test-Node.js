@@ -1,0 +1,10 @@
+form{
+	position: absolute;
+	width: 30%;
+	left: 35%;
+	top: 15%;
+	box-shadow: 7px 7px 5px #3A3939;
+}
+h1{
+	background-color: inherit;
+}
