@@ -1,6 +1,8 @@
 const express = require('express'); // Подключаем модуль Express;
 const app = express(); 
 const bodyParser = require("body-parser");
+const jsonParser = bodyParser.json();
+const fs = require("fs");
 const currentUser = require('./libs/currentUser.js');
 // Подключаем модуль express-handlebars и создаем макет;
 const handlebars = require('express-handlebars') .create({ defaultLayout: 'main' });         
@@ -8,9 +10,9 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars'); 
 app.use(express.static(__dirname + '/public')); //Подключаем статические ресурсы;
 app.set('port', process.env.PORT || 3000);  //Указываем порт(переменная окружения PORT или 3000);
+ 
  //Подключаем функции промежуточной обработки (middleware);
-
-app.get('/', function(req, res) { 
+ app.get('/', function(req, res) { 
     res.render('startForm',{ 
         currentUser: currentUser.getCurrentUser()
     }); 
@@ -23,6 +25,14 @@ app.get('/sighIn', function(req, res) {
 });
 app.get('/personal', function(req, res) { 
     res.render('personal'); 
+});
+app.get("/content", function(req, res){
+    fs.readFile("./data/content.json", "utf8", function(err,data){
+        if(err){console.error(err.stack);}
+        let content = JSON.parse(data);
+        res.send(content);
+    });
+    
 });
 app.use(function(req, res) {   
     res.status(404);

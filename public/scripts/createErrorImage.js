@@ -1,4 +1,5 @@
 //Скрипт создает элемент "img" и стилизует его для представления ответов со статусом 404 и 500;
+"use strict";
 window.onload =()=>{
    let image  = document.createElement('img');
    document.body.appendChild(image);
