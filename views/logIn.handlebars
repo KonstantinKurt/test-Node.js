@@ -1,21 +1,22 @@
 <head>
 	<link rel="stylesheet" href="/styles/formsStyle.css">
+    <script src="/scripts/logInRequest.js"></script>
 </head>
 <h1 align="center">Log In</h1>
 <form>
     <div class="form-group">
-        <label for="exampleInputEmail1">Login</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter login">
+        <label for="logIn">Login</label>
+        <input type="text" class="form-control" id="logIn" aria-describedby="" placeholder="Enter login">
     </div>
     <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password">
+        <label for="Password1">Password</label>
+        <input type="password" class="form-control" id="Password1" placeholder="Enter Password">
     </div>
     <div class="form-group form-check">
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    <button type="submit" class="btn btn-primary">Ok</button>
+    <button type="button" class="btn btn-primary" id="loginButton">Ok</button>
 </form>
 {{{body}}}
 <footer>

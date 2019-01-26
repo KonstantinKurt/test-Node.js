@@ -7,4 +7,9 @@
     left: 5%;
     top: 10%;
     border-radius: 2%;
+    box-shadow: 7px 7px 5px #3A3939;
+}
+.position{
+    position: absolute;
+    left: 50%;
 }

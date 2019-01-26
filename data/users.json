@@ -1,0 +1,1 @@
+[{"id":1,"name":"Admin","password":"qwerty","isAdmin":true},{"id":2,"name":"testUser","password":"qwerty","isAdmin":false}]
