@@ -1,8 +1,4 @@
-let currentUser = {
-    "name": "Guest",
-    "password": "",
-    "isAdmin": false
-};
+let currentUser;
 
 exports.getCurrentUserName = function() {
     return currentUser.name;

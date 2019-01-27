@@ -18,6 +18,6 @@ let currentUserLogOut = function() {
         alert(xhr.status + ': ' + xhr.statusText);
     } else {
         alert(xhr.responseText);
-        document.location.href = '/startForm';
+        document.location.href = '/';
     }
 };

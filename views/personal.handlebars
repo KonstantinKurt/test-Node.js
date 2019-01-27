@@ -1,7 +1,6 @@
 <head>
     <link rel="stylesheet" href="/styles/personalStyle.css">
-    <script src="/scripts/currentUserRequest.js"></script>
-    <script src="/scripts/personal.js"></script>
+     <script src="/scripts/personal.js"></script>
 </head>
 {{{body}}}
 <h1>Personal Area</h1>
@@ -11,23 +10,38 @@
         <li style="list-style-type: none">Name<span class="position">Price</span><span class="position" style="left: 80%">Buy</span></li>
     </ul>
 </div>
-<div class="container contant positionUsers" id="usersList">
+<div class="container contant positionUsers" id="userDiv">
     <h2>Users List</h2>
-    <ul id="contentList" class="list-group">
+    <ul id="usersList" class="list-group">
         <li style="list-style-type: none">Name<span class="position">Password</span><span class="position" style="left: 80%">Is Admin</span></li>
     </ul>
 </div>
-<form class="addContent">
+<form class="addContent" id="addContent">
     <div class="form-group">
-        <label for="logIn">Add content</label>
-        <input type="text" class="form-control" id="logIn" aria-describedby="" placeholder="Enter contant name">
+        <label for="contantName" style="text-decoration: underline; ">Add content</label>
+        <input type="text" class="form-control" id="contantName" aria-describedby="" placeholder="Enter contant name">
     </div>
     <div class="form-group">
-        <label for="Password1">Price</label>
-        <input type="password" class="form-control" id="Password1" placeholder="Enter contant price">
+        <label for="contantPrice">Price</label>
+        <input type="text" class="form-control" id="contantPrice" placeholder="Enter contant price">
     </div>
-    <button type="button" class="btn btn-primary" id="loginButton">Ok</button>
+    <button type="button" class="btn btn-primary" id="addContentButton">Ok</button>
 </form>
+<form class="addContent" id="deleteUser" style="top: 55%" >
+    <div class="form-group">
+        <label for="deleteUserInput" style="text-decoration: underline;">Delete user</label>
+        <input type="text" class="form-control" id="deleteUserInput" aria-describedby="" placeholder="Enter user name">
+    </div>
+    <button type="button" class="btn btn-danger" id="deleteUserButton">Delete</button>
+</form>
+<button type="button" class="btn btn-primary buyButton" id="buyContentButton">Buy</button>
+<button type="button" class="btn btn-danger buyButton" style="top: 30%" id="clearBuyList">Clear list</button>
+<div class="container contant boughtContent" id="boughtContent">
+	<h2>Bought content List</h2>
+    <ul id="boughtContentList" class="list-group" style="position: absolute;left: 2%"></ul>
+</div>
+
+
 <script>
 document.getElementById('navbarButtonLogIn').style.visibility = 'hidden';
 document.getElementById('navbarButtonSignIn').style.visibility = 'hidden';

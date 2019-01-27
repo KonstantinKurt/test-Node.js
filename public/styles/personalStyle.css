@@ -1,7 +1,7 @@
 .contant{
 	position: absolute;
 	width: 30%;
-	height: 80%;
+	height: 75%;
     left: 5%;
     top: 20%;
     border: 2px solid blue;
@@ -14,14 +14,35 @@
     left: 50%;
 }
 .positionUsers{
-    width: 25%;
+    width: 30%;
     left: 40%;
     visibility: hidden;
 }
 .addContent{
     position: absolute;
     width: 20%;
-    height: 80%;
+    height: 30%;
     left: 75%;
     top: 20%;
+    visibility: hidden;
+}
+.buyButton{
+    position: absolute;
+    width: 30%;
+    height: 5%;
+    top: 20%;
+    left: 40%;
+    visibility: hidden;
+}
+.boughtContent{
+    position: absolute;
+    width: 30%;
+    height: 55%;
+    left: 40%;
+    top: 40%;
+    border: 2px solid blue;
+    border-radius: 2%;
+    box-shadow: 7px 7px 5px #3A3939;
+    overflow: scroll;
+    visibility: hidden;
 }

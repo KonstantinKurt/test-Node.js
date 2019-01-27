@@ -1,1 +1,1 @@
-[{"name":"Admin","password":"qwerty","isAdmin":true},{"name":"testUser","password":"qwerty","isAdmin":false}]
+[{"name":"Admin","password":"qwerty","isAdmin":true},{"name":"User","password":"12345","isAdmin":false}]

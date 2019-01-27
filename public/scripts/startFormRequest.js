@@ -1,13 +1,13 @@
 ;
 "use strict";
 //Функция закрывает доступ пользователю "Гость" к покупке контента;
-let changeCheckboxes = function(obj) {
-    if (obj == 'Guest') {
+
+let changeCheckboxes = function() {
+    let obj = currentUserRequest();
+    if (obj.name == 'Guest') {
         let checkboxes = document.getElementsByTagName('input');
-        console.log(checkboxes.length);
         for (let i = 0; i < checkboxes.length; i++) {
             if (checkboxes[i].type == 'checkbox') {
-                console.log(checkboxes[i]);
                 checkboxes[i].style.visibility = 'hidden';
             }
         }
@@ -39,10 +39,9 @@ let contextRequest = function() {
                 li.appendChild(buyCheckbox);
                 document.getElementById('contentList').appendChild(li);
             }
-
+            changeCheckboxes();
         }
-        let currentUser = currentUserRequest();
-        changeCheckboxes(currentUser);
+
     }
 };
 
@@ -51,4 +50,5 @@ let contextRequest = function() {
 
 window.onload = () => {
     contextRequest();
+
 };
