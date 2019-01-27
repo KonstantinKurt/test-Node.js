@@ -6,4 +6,8 @@
   };
   buttons[1].onclick = ()=>{
      document.location.href = '/sighIn';
-  };
+ };
+  buttons[2].onclick = ()=>{
+     currentUserLogOut();
+     document.location.href = '/sighIn';
+ };

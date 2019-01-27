@@ -1,1 +1,35 @@
-<h1>Personal</h1>
+<head>
+    <link rel="stylesheet" href="/styles/personalStyle.css">
+    <script src="/scripts/currentUserRequest.js"></script>
+    <script src="/scripts/personal.js"></script>
+</head>
+{{{body}}}
+<h1>Personal Area</h1>
+<div class="container contant">
+    <h2>Content List</h2>
+    <ul id="contentList" class="list-group">
+        <li style="list-style-type: none">Name<span class="position">Price</span><span class="position" style="left: 80%">Buy</span></li>
+    </ul>
+</div>
+<div class="container contant positionUsers" id="usersList">
+    <h2>Users List</h2>
+    <ul id="contentList" class="list-group">
+        <li style="list-style-type: none">Name<span class="position">Password</span><span class="position" style="left: 80%">Is Admin</span></li>
+    </ul>
+</div>
+<form class="addContent">
+    <div class="form-group">
+        <label for="logIn">Add content</label>
+        <input type="text" class="form-control" id="logIn" aria-describedby="" placeholder="Enter contant name">
+    </div>
+    <div class="form-group">
+        <label for="Password1">Price</label>
+        <input type="password" class="form-control" id="Password1" placeholder="Enter contant price">
+    </div>
+    <button type="button" class="btn btn-primary" id="loginButton">Ok</button>
+</form>
+<script>
+document.getElementById('navbarButtonLogIn').style.visibility = 'hidden';
+document.getElementById('navbarButtonSignIn').style.visibility = 'hidden';
+document.getElementById('navbarButtonLogOut').style.visibility = 'visible';
+</script>

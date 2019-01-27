@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 //Подключаем функции промежуточной обработки (middleware);
 app.get('/', function(req, res) {
     res.render('startForm', {
-        currentUser: currentUser.getCurrentUser()
+        currentUser: currentUser.getCurrentUserName()
     });
 });
 app.get('/logIn', function(req, res) {
@@ -24,7 +24,19 @@ app.get('/sighIn', function(req, res) {
     res.render('sighIn');
 });
 app.get('/personal', function(req, res) {
-    res.render('personal');
+    res.render('personal', {
+        currentUser: currentUser.getCurrentUserName()
+    });
+});
+app.get('/logOut', function(req, res) {
+    let guest = {
+        "name": "Guest",
+        "password": "",
+        "isAdmin": false
+    };
+    currentUser.setCurrentUser(guest);
+    console.log(currentUser.getCurrentUserName());
+    res.send('Logged out!');
 });
 app.get("/content", function(req, res) {
     fs.readFile("./data/content.json", "utf8", function(err, data) {
@@ -45,16 +57,16 @@ app.post("/logInUser", function(req, res) {
         if (err) { console.error(err.stack); }
         let users = JSON.parse(data);
         let loggedUser;
-        for(let i =0;i <users.length;i++){
-            if(users[i].name == name && users[i].password){
-               loggedUser = users[i];
-               break;
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].name == name && users[i].password) {
+                loggedUser = users[i];
+                break;
             }
         }
-        if(loggedUser !== undefined){
+        if (loggedUser !== undefined) {
+            currentUser.setCurrentUser(loggedUser);
             res.send('Successful');
-        }
-        else{
+        } else {
             res.status(401);
             res.send('User not found!');
         }

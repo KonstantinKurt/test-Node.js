@@ -45,17 +45,7 @@ let contextRequest = function() {
         changeCheckboxes(currentUser);
     }
 };
-//Синхронный запрос на тип текущего пользователя;
-function currentUserRequest() {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', '/currentUser', false);
-    xhr.send();
-    if (xhr.status != 200) {
-        alert(xhr.status + ': ' + xhr.statusText);
-    } else {
-        return xhr.responseText;
-    }
-};
+
 
 
 
