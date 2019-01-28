@@ -1,24 +1,25 @@
 <head>
     <link rel="stylesheet" href="/styles/formsStyle.css">
+    <script src="/scripts/sighnInRequest.js"></script>
 </head>
 <h1 align="center">Sign In</h1>
 <form>
     <div class="form-group">
-        <label for="exampleInputEmail1">Login</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="" placeholder="Enter login">
+        <label for="login">Login</label>
+        <input type="text" class="form-control" id="login" aria-describedby="" placeholder="Enter login" min="4" max="10">
     </div>
     <div class="form-group">
         <label for="Password1">Password</label>
         <input type="password" class="form-control" id="Password1" placeholder="Enter Password">
     </div>
     <div class="form-group">
-        <input type="password" class="form-control" id="Password2" placeholder="Repeat Password">
+        <input type="password" class="form-control" id="Password2" placeholder="Repeat Password" min="4" max="10">
     </div>
     <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        <input type="checkbox" class="form-check-input" id="isAdmin">
+        <label class="form-check-label" for="isAdmin">is Admin</label>
     </div>
-    <button type="submit" class="btn btn-primary">Ok</button>
+    <button type="button" class="btn btn-primary" id="sighInbutton">Ok</button>
 </form>
 {{{body}}}
 <footer>

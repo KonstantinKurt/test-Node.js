@@ -1,17 +1,15 @@
-const express = require('express'); // Подключаем модуль Express;
+const express = require('express'); 
 const app = express();
 const bodyParser = require("body-parser");
 const fs = require("fs");
 const currentUser = require('./libs/currentUser.js');
-// Подключаем модуль express-handlebars и создаем макет;
 const handlebars = require('express-handlebars').create({ defaultLayout: 'main' });
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.use(express.static(__dirname + '/public')); //Подключаем статические ресурсы;
-app.set('port', process.env.PORT || 3000); //Указываем порт(переменная окружения PORT или 3000);
+app.use(express.static(__dirname + '/public')); 
+app.set('port', process.env.PORT || 3000);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-//Подключаем функции промежуточной обработки (middleware);
 app.get('/', function(req, res) {
     let guest = {
         "name": "Guest",
@@ -73,10 +71,7 @@ app.post("/logInUser", function(req, res) {
         let loggedUser;
         let reason;
         for (let i = 0; i < users.length; i++) {
-            if(users[i].name == name && users[i].password != password)
-            {
-                reason = 'Wrong password!'; 
-            }
+            
             if (users[i].name == name && users[i].password == password) {
                 loggedUser = users[i];
                 break;
@@ -87,10 +82,7 @@ app.post("/logInUser", function(req, res) {
             //console.log(currentUser.getCurrentUser());
             res.send('Successful');
         } else {
-            if(reason){
-                res.status(401);
-                res.send(reason);
-            }
+            
             res.status(401);
             res.send('User not found!');
         }
@@ -137,6 +129,35 @@ app.post("/addContent", function(req, res) {
 
     });
 
+});
+app.post("/sighnInUser", function(req, res) {
+    let addedName = req.body.name;
+    let addedPassword = req.body.password;
+    let addedIsAdmin = req.body.isAdmin;
+    fs.readFile("./data/users.json", "utf8", function(err, data) {
+        if (err) { console.error(err.stack); }
+        let users = JSON.parse(data);
+        let newUser = {
+            name: addedName,
+            password: addedPassword,
+            isAdmin: addedIsAdmin
+        };
+        let reject;
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].name == addedName) {
+                reject = 'Wrong password!';
+            }
+        }
+        if (reject) {
+            res.status(302);
+            res.send('This login is already exists!');
+        } else {
+            users.push(newUser);
+            let updatedContent = JSON.stringify(users);
+            fs.writeFile("./data/users.json", updatedContent, function(err, data) {});
+            res.send('Login Successful!');
+        }
+    });
 });
 app.post("/deleteUser", function(req, res) {
     let deletedUserName = req.body.name;
